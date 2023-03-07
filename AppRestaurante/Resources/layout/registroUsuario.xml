@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@android:color/holo_green_light">
+
+    <ImageView
+        android:src="@drawable/ic_usuar"
+        android:layout_width="match_parent"
+        android:layout_height="142.5dp" />
+
+    <TextView
+        android:text="REGISTRATE"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtviewRegistrar" />
+    
+    <EditText
+        android:hint="Nombres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtNuevoNombreUsuario" />
+    <EditText
+        android:hint="Apellidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtNuevoApellidoUsuario" />
+    <EditText
+        android:hint="Telefono"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtNuevoTelefonoUsuario" />
+
+    <EditText
+        android:hint="Usuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtNuevoUsuario" />
+    <EditText
+        android:hint="Contraseña"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:id="@+id/txtNuevaClaveUsuario" />
+    <Button
+        android:text="CREAR NUEVO USUARIO"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnRegistrarUsuarioNuevo" 
+        android:onClick="BtnRegistrarUsuario_Click"/>
+    <Button
+        android:text="Ya tengo una cuenta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnYaTienesCuenta"
+        android:onClick="BtnYaTienesCuenta_Click"/>
+   
+
+
+</LinearLayout>

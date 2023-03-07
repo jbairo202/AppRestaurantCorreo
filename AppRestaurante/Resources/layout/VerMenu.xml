@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_purple">
+
+    <TextView
+        android:text="Tu comida favorita en un solo lugar"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtviewRegistrar" />
+    <Switch
+        android:text="Desea recoger su pedido en la tienda?"
+        android:layout_width="374.5dp"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:textOn="YES"
+        android:textOff="NO" 
+        android:id="@+id/monitored_switch"/>
+
+
+    <CheckedTextView
+        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+        android:text="Categorias"
+        android:id="@+id/Categorias"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="18dp"
+        android:textColor="#000"
+        android:textStyle="italic"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:textSize="18sp"
+        android:checked="false"/>
+
+
+
+    <CheckBox
+        android:text="Tipica"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checktipica" />
+
+    <CheckBox
+        android:text="Hamburguesas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkhamburg" />
+
+    <CheckBox
+        android:text="Mexicana"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkmexicana" />
+
+    <CheckBox
+        android:text="Desayunos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkdesayunos" />
+
+    <CheckBox
+        android:text="Pollo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkpollo" />
+
+    <CheckBox
+        android:text="Comidas Rapidas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkRapidas" />
+    <CheckBox
+        android:text="Pizza"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkpizza" />
+
+    <CheckBox
+        android:text="Jugos y Bebidas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBebidas" />
+
+    <CheckBox
+        android:text="Saludable"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkSaludable" />
+
+    <CheckBox
+        android:text="Arepas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkArepas" />
+
+    <CheckBox
+        android:text="Suchi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkSuchi" />
+
+    
+
+
+
+
+
+</LinearLayout>

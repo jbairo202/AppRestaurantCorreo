@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">AppRestaurante</string>
+	<string name="action_settings">Settings</string>
+	<string-array name="planet_array">
+		<item>Medellin</item>
+		<item>Caldas</item>
+		<item>Envigado</item>
+		<item>Bello</item>
+		<item>Itagui</item>
+		<item>La Estrella</item>
+		<item>Copacabana</item>
+		<item>Girardota</item>
+	</string-array>
+</resources>

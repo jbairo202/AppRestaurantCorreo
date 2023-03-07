@@ -14,7 +14,7 @@ namespace AppRestaurante
     [Activity(Label = "Acerca")]
     public class Acerca : Activity
     {
-        TextureView txtAceraDe;
+        TextureView txtAcerca;
         Button btnVolver;
         protected override void OnCreate(Bundle savedInstanceState)
         {

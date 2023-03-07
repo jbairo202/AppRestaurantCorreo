@@ -15,22 +15,22 @@ namespace AppRestaurante
     public class SelectSede : Activity
     {
         Spinner spinner;
-        protected override void OnCreate(Bundle bundle)
-        {
-            base.OnCreate(bundle);
+        //protected override void OnCreate(Bundle bundle)
+        //{
+        //    base.OnCreate(bundle);
 
-            // Set our view from the "Main" layout resource
-            SetContentView(Resource.Layout.SelectSede);
+        //    // Set our view from the "Main" layout resource
+        //    SetContentView(Resource.Layout.SelectSede);
 
-            Spinner spinner = FindViewById<Spinner>(Resource.Id.action_bar_spinner);
+        //    Spinner spinner = FindViewById<Spinner>(Resource.Id.action_bar_spinner);
 
-            spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
-            var adapter = ArrayAdapter.CreateFromResource(
-                    this, Resource.Array.ubicacion_array, Android.Resource.Layout.SimpleSpinnerItem);
+        //    spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+        //    var adapter = ArrayAdapter.CreateFromResource(
+        //            this, Resource.Array.ubicacion_array, Android.Resource.Layout.SimpleSpinnerItem);
 
-            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-            spinner.Adapter = adapter;
-        }
+        //    adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+        //    spinner.Adapter = adapter;
+        //}
 
         private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {

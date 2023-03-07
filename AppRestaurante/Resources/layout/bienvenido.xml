@@ -36,5 +36,5 @@
         android:id="@+id/btnSalir" 
         android:onClick="btnSalir_Click"/>
 
-
+    
 </LinearLayout>

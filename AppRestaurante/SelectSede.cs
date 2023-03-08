@@ -1,36 +1,33 @@
 ﻿using Android.App;
-using Android.Content;
 using Android.OS;
 using Android.Runtime;
-using Android.Views;
 using Android.Widget;
+using AndroidX.AppCompat.App;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace AppRestaurante
 {
-    [Activity(Label = "SelectSede")]
-    public class SelectSede : Activity
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    public class SelectSede : AppCompatActivity
     {
-        Spinner spinner;
-        //protected override void OnCreate(Bundle bundle)
-        //{
-        //    base.OnCreate(bundle);
 
-        //    // Set our view from the "Main" layout resource
-        //    SetContentView(Resource.Layout.SelectSede);
 
-        //    Spinner spinner = FindViewById<Spinner>(Resource.Id.action_bar_spinner);
+        protected override void OnCreate(Bundle bundle)
+        {
+            base.OnCreate(bundle);
 
-        //    spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
-        //    var adapter = ArrayAdapter.CreateFromResource(
-        //            this, Resource.Array.ubicacion_array, Android.Resource.Layout.SimpleSpinnerItem);
+            // Set our view from the "Main" layout resource
+            SetContentView(Resource.Layout.activity_main);
 
-        //    adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
-        //    spinner.Adapter = adapter;
-        //}
+            Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner);
+
+            spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+            var adapter = ArrayAdapter.CreateFromResource(
+                    this, Resource.Array.planets_array, Android.Resource.Layout.SimpleSpinnerItem);
+
+            adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+            spinner.Adapter = adapter;
+        }
 
         private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
@@ -38,7 +35,6 @@ namespace AppRestaurante
             string toast = string.Format("The planet is {0}", spinner.GetItemAtPosition(e.Position));
             Toast.MakeText(this, toast, ToastLength.Long).Show();
         }
-
 
     }
 }

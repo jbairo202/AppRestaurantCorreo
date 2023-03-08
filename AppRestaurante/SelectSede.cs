@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Widget;
@@ -7,6 +8,7 @@ using System;
 
 namespace AppRestaurante
 {
+    
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class SelectSede : AppCompatActivity
     {
@@ -14,10 +16,12 @@ namespace AppRestaurante
 
         protected override void OnCreate(Bundle bundle)
         {
+            
             base.OnCreate(bundle);
 
             // Set our view from the "Main" layout resource
             SetContentView(Resource.Layout.SelectSede);
+          
 
             Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner);
 
@@ -28,6 +32,8 @@ namespace AppRestaurante
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinner.Adapter = adapter;
         }
+
+       
 
         private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {

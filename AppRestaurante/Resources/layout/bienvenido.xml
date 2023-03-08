@@ -33,7 +33,7 @@
         android:text="Salir"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnSalir" 
+        android:id="@+id/btnSalir"
         android:onClick="btnSalir_Click"/>
 
     

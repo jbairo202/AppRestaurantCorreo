@@ -48,13 +48,14 @@
         android:id="@+id/txtNuevaClaveUsuario" />
     <Button
         android:text="CREAR NUEVO USUARIO"
-        android:layout_width="match_parent"
+        android:layout_width="277.5dp"
         android:layout_height="wrap_content"
-        android:id="@+id/btnRegistrarUsuarioNuevo" 
-        android:onClick="BtnRegistrarUsuario_Click"/>
+        android:id="@+id/btnRegistrarUsuarioNuevo"
+        android:onClick="BtnRegistrarUsuario_Click"
+        android:layout_marginRight="0.0dp" />
     <Button
         android:text="Ya tengo una cuenta"
-        android:layout_width="match_parent"
+        android:layout_width="283.0dp"
         android:layout_height="wrap_content"
         android:id="@+id/btnYaTienesCuenta"
         android:onClick="BtnYaTienesCuenta_Click"/>

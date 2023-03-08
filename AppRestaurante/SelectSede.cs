@@ -17,13 +17,13 @@ namespace AppRestaurante
             base.OnCreate(bundle);
 
             // Set our view from the "Main" layout resource
-            SetContentView(Resource.Layout.activity_main);
+            SetContentView(Resource.Layout.SelectSede);
 
             Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner);
 
             spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
             var adapter = ArrayAdapter.CreateFromResource(
-                    this, Resource.Array.planets_array, Android.Resource.Layout.SimpleSpinnerItem);
+                    this, Resource.Array.Location_array, Android.Resource.Layout.SimpleSpinnerItem);
 
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinner.Adapter = adapter;
@@ -32,7 +32,7 @@ namespace AppRestaurante
         private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
-            string toast = string.Format("The planet is {0}", spinner.GetItemAtPosition(e.Position));
+            string toast = string.Format("The city is {0}", spinner.GetItemAtPosition(e.Position));
             Toast.MakeText(this, toast, ToastLength.Long).Show();
         }
 

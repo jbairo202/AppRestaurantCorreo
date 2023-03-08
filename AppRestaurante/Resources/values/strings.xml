@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">AppRestaurante</string>
-	<string name="planet_prompt">Choose a planet</string>
-	<string-array name="planets_array">
-		<item>Mercury</item>
-		<item>Venus</item>
-		<item>Earth</item>
-		<item>Mars</item>
-		<item>Jupiter</item>
-		<item>Saturn</item>
-		<item>Uranus</item>
-		<item>Neptune</item>
+	<string name="Location_prompt">Choose a Location</string>
+	<string-array name="Location_array">
+		<item>Medellin</item>
+		<item>Bello</item>
+		<item>Envigado</item>
+		<item>Itagui</item>
+		<item>Copacabana</item>
+		<item>Caldas</item>
+		<item>La Estrella</item>
+		<item>Girardota</item>
 	</string-array>
 </resources>

@@ -12,8 +12,7 @@ namespace AppRestaurante
     [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
     public class SelectSede : AppCompatActivity
     {
-
-
+        Button button;
         protected override void OnCreate(Bundle bundle)
         {
             
@@ -21,7 +20,9 @@ namespace AppRestaurante
 
             // Set our view from the "Main" layout resource
             SetContentView(Resource.Layout.SelectSede);
-          
+
+           
+
 
             Spinner spinner = FindViewById<Spinner>(Resource.Id.spinner);
 

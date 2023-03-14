@@ -113,10 +113,10 @@ namespace AppRestaurante
     #endregion
 
     #region uso de datos de un pedido
-    public class Pedido
+    public class CrearPedido
     {
 
-        public Pedido() { }
+        public CrearPedido() { }
 
         [PrimaryKey, AutoIncrement]
         [MaxLength(10)]
@@ -140,7 +140,7 @@ namespace AppRestaurante
     }
     #endregion
 
-    #region Manejo de datos y conexion a BD
+    #region Manejo de datos y conexion a BD de Peddido
     public class AuxiliarP
     {
         static object loker = new object();
@@ -148,7 +148,7 @@ namespace AppRestaurante
         public AuxiliarP()//Esto es un construtor
         {
             connection = conectarBD();
-            connection.CreateTable<Login>();
+            connection.CreateTable<CrearPedido>();
         }
 
         public SQLite.SQLiteConnection conectarBD()
@@ -162,28 +162,28 @@ namespace AppRestaurante
 
         }
 
-        //Selecionar un registro
-       // public Login selecionarUno(string NuevoUsuario, string NuevaClaveUsuario)
-        //{
-           // lock (loker)
-            //{
-               /// return connection.Table<Pedido>().FirstOrDefault(x => x.Usuario == NuevoUsuario && x.Password == NuevaClaveUsuario);
-            //}
-        //}
+        //Selecionar un pedido
+        public CrearPedido selecionarUno(int Id)
+        {
+            lock (loker)
+            {
+                return connection.Table<CrearPedido>().FirstOrDefault(x => x.Id == Id);
+            }
+        }
 
 
 
         //Selecionar muchos
-        public IEnumerable<Pedido> selecionarTodo()
+        public IEnumerable<CrearPedido> selecionarTodo()
         {
             lock (loker)
             {
-                return (from i in connection.Table<Pedido>() select i).ToList();
+                return (from i in connection.Table<CrearPedido>() select i).ToList();
             }
         }
 
         //Guardar o actualizar
-        public int guardar(Pedido registro)
+        public int GuardarPedido(CrearPedido registro)
         {
             lock (loker)
             {
@@ -199,11 +199,11 @@ namespace AppRestaurante
         }
 
         //Eliminar
-        public int eliminar(int ID)
+        public int eliminar(int Id)
         {
             lock (loker)
             {
-                return connection.Delete<Pedido>(ID);
+                return connection.Delete<CrearPedido>(Id);
             }
         }
 

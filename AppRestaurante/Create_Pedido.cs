@@ -14,7 +14,8 @@ namespace AppRestaurante
     [Activity(Label = "Create_Pedido")]
     public class Create_Pedido : Activity
     {
-        
+         
+        EditText txtIdUsuario;
         EditText txtNombreUsuario;
         EditText txtApellidoUsuario;
         EditText txtTelefonoUsuario;
@@ -28,6 +29,7 @@ namespace AppRestaurante
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.Create_Pedido);
+            txtIdUsuario = FindViewById<EditText>(Resource.Id.txtIdUsuario);
             txtNombreUsuario = FindViewById<EditText>(Resource.Id.txtNombreUsuario);
             txtApellidoUsuario = FindViewById<EditText>(Resource.Id.txtApellidoUsuario);
             txtTelefonoUsuario = FindViewById<EditText>(Resource.Id.txtTelefonoUsuario);
@@ -57,11 +59,28 @@ namespace AppRestaurante
 
             try
             {
-                if (!string.IsNullOrEmpty(txtNombreUsuario.Text.Trim()) && !string.IsNullOrEmpty(txtApellidoUsuario.Text.Trim()) && (!string.IsNullOrEmpty(txtTelefonoUsuario.Text.Trim()) && (!string.IsNullOrEmpty(txtDireccion.Text.Trim()) && (!string.IsNullOrEmpty(txtMetodoPago.Text.Trim())))))
+               
+                if (!string.IsNullOrEmpty(txtIdUsuario.Text.Trim()) && !string.IsNullOrEmpty(txtNombreUsuario.Text.Trim()) && !string.IsNullOrEmpty(txtApellidoUsuario.Text.Trim()) && (!string.IsNullOrEmpty(txtTelefonoUsuario.Text.Trim()) && (!string.IsNullOrEmpty(txtDireccion.Text.Trim()) && (!string.IsNullOrEmpty(txtMetodoPago.Text.Trim())))))
                 {
-                    new AuxiliarP().guardar(new Pedido() { Id = 0, Nombre = txtNombreUsuario.Text.Trim(), Apellido = txtApellidoUsuario.Text.Trim(), Telefono = txtTelefonoUsuario.Text.Trim(), Direccion = txtDireccion.Text.Trim(), MetodoPago = txtMetodoPago.Text.Trim(), });
+                    new AuxiliarP().GuardarPedido(new CrearPedido()
+                    { 
+                      Id = 0, 
+                      Nombre = txtNombreUsuario.Text.Trim(),
+                      Apellido = txtApellidoUsuario.Text.Trim(),
+                      Telefono = txtTelefonoUsuario.Text.Trim(),
+                      Direccion = txtDireccion.Text.Trim(),
+                      MetodoPago = txtMetodoPago.Text.Trim(),
+                    });
                     Toast.MakeText(this, "Pedido Registrado", ToastLength.Long).Show();
+                    txtNombreUsuario.Text = "";
+                    txtApellidoUsuario.Text = "";
+                    txtTelefonoUsuario.Text = "";
+                    txtDireccion.Text = "";
+                    txtMetodoPago.Text = "";
+
+
                 }
+
                 else
                 {
                     Toast.MakeText(this, "Por favor  llene todos los campos", ToastLength.Long).Show();

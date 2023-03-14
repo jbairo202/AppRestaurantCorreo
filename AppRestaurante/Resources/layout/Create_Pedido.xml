@@ -16,6 +16,12 @@
         android:id="@+id/txtviewRegistrar" />
 
     <EditText
+        android:hint="Id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtIdUsuario" />
+
+    <EditText
         android:hint="Names"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

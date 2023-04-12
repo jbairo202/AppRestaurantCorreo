@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Widget;
 using AndroidX.AppCompat.App;
+using AppRestaurante.Data;
 using System;
 
 namespace AppRestaurante
@@ -17,6 +18,7 @@ namespace AppRestaurante
         EditText txtPassw;
         Button btnIngresar;
         Button btnRegistrate;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);

@@ -118,7 +118,7 @@ namespace AppRestaurante
 
         public CrearPedido() { }
 
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey]
         [MaxLength(10)]
         public int Id { get; set; }
 
@@ -163,7 +163,7 @@ namespace AppRestaurante
         }
 
         //Selecionar un pedido
-        public CrearPedido selecionarUno(int Id)
+        public CrearPedido SelecionarUno(int Id)
         {
             lock (loker)
             {
@@ -174,14 +174,14 @@ namespace AppRestaurante
 
 
         //Selecionar muchos
-        public IEnumerable<CrearPedido> selecionarTodo()
+        public IEnumerable<CrearPedido>SelecionarTodo()
         {
             lock (loker)
             {
                 return (from i in connection.Table<CrearPedido>() select i).ToList();
             }
-        }
-
+        } 
+            
         //Guardar o actualizar
         public int GuardarPedido(CrearPedido registro)
         {
@@ -199,7 +199,7 @@ namespace AppRestaurante
         }
 
         //Eliminar
-        public int eliminar(int Id)
+        public int Eliminar(int Id)
         {
             lock (loker)
             {

@@ -63,12 +63,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Acerca.cs" />
+    <Compile Include="VerPedidosCRUD.cs" />
     <Compile Include="Ayuda.cs" />
     <Compile Include="Bienvenido.cs" />
-    <Compile Include="Buttom.cs" />
     <Compile Include="Conecion.cs" />
     <Compile Include="Create_Pedido.cs" />
+    <Compile Include="Data\SQLiteHelper.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Models\CrearPedido.cs" />
     <Compile Include="RegistroUsuario.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -294,6 +296,12 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_usuar.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\VerPedidosCRUD.xml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
     Other similar extension points exist, see Microsoft.Common.targets.

@@ -23,6 +23,7 @@ namespace AppRestaurante
 
         Toolbar toolbar;
         Button btnSalir;
+        Button btnVerPedidos;
         //private EventHandler BtnSalir_Click;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -32,13 +33,23 @@ namespace AppRestaurante
             textTextoBienvenido = FindViewById<TextView>(Resource.Id.txtBienvenido);
             FindViewById<TextView>(Resource.Id.txtBienvenido).Text = textTextoBienvenido.Text + ": " + Intent.GetStringExtra("username") ?? "Error al o";
             btnSalir = FindViewById<Button>(Resource.Id.btnSalir);
+            btnVerPedidos = FindViewById<Button>(Resource.Id.btnVerPedidos);
 
             toolbar = FindViewById<Toolbar>(Resource.Id.toolbarMenu);
 
             btnSalir.Click += BtnSalir_Click;
+            btnVerPedidos.Click += BtnVerPedidos_Click;
+            
 
             SetActionBar(toolbar);
+     
             ActionBar.Title = "Menu";
+        }
+
+        private void BtnVerPedidos_Click(object sender, EventArgs e)
+        {
+            Intent i = new Intent(this, typeof(CrearPedido));
+            StartActivity(i);
         }
 
         private void BtnSalir_Click(object sender, System.EventArgs e)

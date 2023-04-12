@@ -29,6 +29,14 @@
         android:src="@drawable/correo1"
         android:layout_width="match_parent"
         android:layout_height="367.5dp" />
+
+    <Button
+        android:text="Ver Pedidos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnVerPedidos"
+        android:onClick="btnVerPedidos_Click"/>
+
     <Button
         android:text="Salir"
         android:layout_width="match_parent"

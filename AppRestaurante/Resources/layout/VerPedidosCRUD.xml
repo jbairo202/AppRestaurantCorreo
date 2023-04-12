@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background ="#720707"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:hint="Id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtIdUsuario"
+        android:inputType="text" />
+    <EditText
+        android:hint="Names"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtNombreUsuario"
+        android:inputType="text" />
+    <EditText
+        android:hint="Surnames"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtApellidoUsuario"
+        android:inputType="text" />
+    <EditText
+        android:hint="Phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtTelefonoUsuario"
+        android:inputType="text" />
+    <EditText
+        android:hint="Address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDireccion"
+        android:inputType="text" />
+    <EditText
+        android:hint="Date"
+        android:inputType="datetime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtdate" />
+    <EditText
+        android:hint="payment method"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtMetodoPago"
+        android:inputType="text" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        < Button
+            android:id="@+id/btnCrearPedido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CREAR PEDIDO"
+            android:layout_weight="1" />
+        
+        < Button
+            android:id="@+id/btnEditar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Editar"
+            android:layout_weight="1" />
+        < Button
+            android:id="@+id/btnEliminar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eliminar"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+    < VistaLista
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:background="#8b7355"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lvDados " />
+
+</LinearLayout>

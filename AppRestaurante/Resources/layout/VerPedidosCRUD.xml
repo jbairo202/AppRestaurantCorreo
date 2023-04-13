@@ -52,33 +52,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        < Button
-            android:id="@+id/btnCrearPedido"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CREAR PEDIDO"
-            android:layout_weight="1" />
+      
         
-        < Button
-            android:id="@+id/btnEditar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Editar"
-            android:layout_weight="1" />
-        < Button
-            android:id="@+id/btnEliminar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Eliminar"
-            android:layout_weight="1" />
+        
 
     </LinearLayout>
-    < VistaLista
-        android:minWidth="25px"
-        android:minHeight="25px"
-        android:background="#8b7355"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/lvDados " />
+    
 
 </LinearLayout>

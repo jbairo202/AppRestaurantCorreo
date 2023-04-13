@@ -62,7 +62,7 @@
         android:id="@+id/btnCrearPedido"
         android:onClick="BtnCrear_Pedido_Click"/>
 
-    <Button
+     <Button
         android:text="Regresar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

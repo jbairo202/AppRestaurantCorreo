@@ -48,7 +48,7 @@ namespace AppRestaurante
 
         private void BtnVerPedidos_Click(object sender, EventArgs e)
         {
-            Intent i = new Intent(this, typeof(CrearPedido));
+            Intent i = new Intent(this, typeof(VerPedidosCRUD));
             StartActivity(i);
         }
 

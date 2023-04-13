@@ -115,8 +115,14 @@ namespace AppRestaurante
     #region uso de datos de un pedido
     public class CrearPedido
     {
+        private VerPedidosCRUD verPedidosCRUD;
 
         public CrearPedido() { }
+
+        public CrearPedido(VerPedidosCRUD verPedidosCRUD)
+        {
+            this.verPedidosCRUD = verPedidosCRUD;
+        }
 
         [PrimaryKey]
         [MaxLength(10)]
@@ -137,6 +143,20 @@ namespace AppRestaurante
         [MaxLength(15)]
         public string MetodoPago { get; set; }
 
+        internal void ActualizarPedido(CrearPedido pedido)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void InsertarPedido(CrearPedido pedido)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal object ObtenerTodasLosPedidos()
+        {
+            throw new NotImplementedException();
+        }
     }
     #endregion
 

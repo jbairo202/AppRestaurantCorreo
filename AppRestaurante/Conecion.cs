@@ -154,15 +154,15 @@ namespace AppRestaurante
     public class AuxiliarP
     {
         static object locker = new object();
-        SQLiteConnection conection;
+        SQLiteConnection connection;
         public AuxiliarP()
         {
-            conection = conectionDabatase();
-            conection.CreateTable<Sign>();
+            connection = conectarBD();
+            connection.CreateTable<Sign>();
 
         }
 
-        public SQLite.SQLiteConnection conectionDabatase()
+        public SQLite.SQLiteConnection conectarBD()
         {
             SQLiteConnection enterDatabase;
             String nameDatabase = "queryDatabase.db3";
@@ -177,15 +177,24 @@ namespace AppRestaurante
         {
             lock (locker)
             {
-                return conection.Table<Sign>().FirstOrDefault(i => i.ID == Data);
+                return connection.Table<Sign>().FirstOrDefault(i => i.ID == Data);
             }
         }
+
+        /*public Sign selecionarTodo(int Data)
+        {
+            lock (locker)
+            {
+                return (from i in connection.Table<Sign>() select i).ToList();
+            }
+        }*/
+
         //Eliminar registro
         public int Destroy(int Id)
         {
             lock (locker)
             {
-                return conection.Delete<Sign>(Id);
+                return connection.Delete<Sign>(Id);
             }
         }
 
@@ -196,11 +205,11 @@ namespace AppRestaurante
             {
                 if (sign.ID == 0)
                 {
-                    return conection.Insert(sign);
+                    return connection.Insert(sign);
                 }
                 else
                 {
-                    return conection.Update(sign);
+                    return connection.Update(sign);
                 }
             }
         }

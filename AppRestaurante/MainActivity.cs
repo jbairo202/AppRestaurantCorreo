@@ -9,7 +9,7 @@ using System;
 namespace AppRestaurante
 {
 
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = true)]
+    [Activity(Label = "Icono", Icon = "@mipmap/ic_IconoC", Theme = "@style/AppTheme", MainLauncher = true)]
 
     public class MainActivity : AppCompatActivity 
     {

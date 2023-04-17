@@ -1,4 +1,5 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Runtime;
 using Android.Widget;
@@ -17,10 +18,11 @@ namespace AppRestaurante
         EditText txtTelefono;
         EditText txtDireccion;
         EditText txtMetodoPago;
-        Button show;
-        Button insert;
-        Button update;
-        Button delete;
+        Button btnMostrarP;
+        Button btnInsertarP;
+        Button btnActualizarP;
+        Button btnEliminarP;
+        Button btnAtras;
         TextView ViewOne;
         TextView ViewTwo;
         TextView ViewThree;
@@ -31,12 +33,13 @@ namespace AppRestaurante
         {
             base.OnCreate(savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
+            SetContentView(Resource.Layout.Pedidos);
             // Set our view from the "main" layout resource
-            SetContentView(Resource.Layout.activity_main);
-            show = FindViewById<Button>(Resource.Id.show);
-            insert = FindViewById<Button>(Resource.Id.insert);
-            update = FindViewById<Button>(Resource.Id.update);
-            delete = FindViewById<Button>(Resource.Id.delete);
+            btnMostrarP = FindViewById<Button>(Resource.Id.btnMostrarP);
+            btnInsertarP = FindViewById<Button>(Resource.Id.btnInsertarP);
+            btnActualizarP = FindViewById<Button>(Resource.Id.btnActualizarP);
+            btnEliminarP = FindViewById<Button>(Resource.Id.btnEliminarP);
+            btnAtras = FindViewById<Button>(Resource.Id.btnAtras);
             txtId = FindViewById<EditText>(Resource.Id.txtId);
             txtNombre = FindViewById<EditText>(Resource.Id.txtNombre);
             txtApellido = FindViewById<EditText>(Resource.Id.txtApellido);
@@ -50,81 +53,21 @@ namespace AppRestaurante
             ViewFive = FindViewById<TextView>(Resource.Id.ViewFive);
             ViewSix = FindViewById<TextView>(Resource.Id.ViewSix);
 
-            show.Click += Show_Click;
-            insert.Click += Insert_Click;
-            update.Click += Update_Click;
-            delete.Click += Delete_Click;
+            btnMostrarP.Click += BtnMostrarP_Click;
+            btnInsertarP.Click += BtnInsertarP_Click;
+            btnActualizarP.Click += BtnActualizarP_Click;
+            btnEliminarP.Click += BtnEliminarP_Click;
+            btnAtras.Click += BtnAtras_Click;
 
         }
 
-        private void Delete_Click(object sender, System.EventArgs e)
+        private void BtnAtras_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (!string.IsNullOrEmpty(txtId.Text.Trim()))
-                {
-                    new AuxiliarP().Destroy(int.Parse(txtId.Text.Trim()));
-                    Toast.MakeText(this, "Pedido eliminado", ToastLength.Short).Show();
-                }
-                else
-                {
-                    Toast.MakeText(this, "Campo vacio. Rellene el campo de ID", ToastLength.Long).Show();
-                }
-            }
-            catch (Exception x)
-            {
-                Toast.MakeText(this, x.ToString(), ToastLength.Short).Show();
-            }
-            //throw new System.NotImplementedException();
+            Intent i = new Intent(this, typeof(Bienvenido));
+            StartActivity(i);
         }
 
-        private void Update_Click(object sender, System.EventArgs e)
-        {
-            try
-            {
-                if (!string.IsNullOrEmpty(txtNombre.Text.Trim()) && !string.IsNullOrEmpty(txtId.Text.Trim()) && !string.IsNullOrEmpty(txtApellido.Text.Trim()) && !string.IsNullOrEmpty(txtTelefono.Text.Trim()) && !string.IsNullOrEmpty(txtDireccion.Text.Trim()) && !string.IsNullOrEmpty(txtMetodoPago.Text.Trim()))
-                {
-                    // = new Auxiliar().Insert( txtId.Text.Trim(), txtNombre.Text.Trim(), txtApellido.Text.Trim(), txtTelefono.Text.Trim(), txtDireccion.Text.Trim(), txtMetodoPago.Text.Trim());
-                    new AuxiliarP().Insert(new Sign() { ID = int.Parse(txtId.Text.Trim()), Nombre = txtNombre.Text.Trim(), Apellido = txtApellido.Text.Trim(), Telefono = txtTelefono.Text.Trim(), Direccion = txtDireccion.Text.Trim(), MetoPago = txtMetodoPago.Text.Trim() });
-                    Toast.MakeText(this, "Pedido actualizado", ToastLength.Short).Show();
-                }
-                else
-                {
-                    Toast.MakeText(this, "Campos o campo vacio. Rellene todos los campos", ToastLength.Long).Show();
-                }
-            }
-            catch (Exception X)
-            {
-                Toast.MakeText(this, X.ToString(), ToastLength.Short).Show();
-            }
-            //throw new System.NotImplementedException();
-        }
-
-        private void Insert_Click(object sender, System.EventArgs e)
-        {
-            try
-            {
-                if (!string.IsNullOrEmpty(txtNombre.Text.Trim()) && !string.IsNullOrEmpty(txtApellido.Text.Trim()) && !string.IsNullOrEmpty(txtTelefono.Text.Trim()) && !string.IsNullOrEmpty(txtDireccion.Text.Trim()) && !string.IsNullOrEmpty(txtMetodoPago.Text.Trim()))
-                {
-                    // = new Auxiliar().Insert(txtUser.Text.Trim(), txtId.Text.Trim(), txtEmail.Text.Trim(), txtDescription.Text.Trim());
-                    new AuxiliarP().Insert(new Sign() { ID = 0, Nombre = txtNombre.Text.Trim(), Apellido = txtApellido.Text.Trim(), Telefono = txtTelefono.Text.Trim(), Direccion = txtDireccion.Text.Trim(), MetoPago = txtMetodoPago.Text.Trim() });
-                    Toast.MakeText(this, "Pedido guardado", ToastLength.Short).Show();
-
-
-                }
-                else
-                {
-                    Toast.MakeText(this, "Campos o campo vacio. Rellene todos los campos", ToastLength.Long).Show();
-                }
-            }
-            catch (Exception X)
-            {
-                Toast.MakeText(this, X.ToString(), ToastLength.Short).Show();
-            }
-            //throw new System.NotImplementedException();
-        }
-
-        private void Show_Click(object sender, System.EventArgs e)
+        private void BtnMostrarP_Click(object sender, EventArgs e)
         {
             try
             {
@@ -158,6 +101,75 @@ namespace AppRestaurante
             }
             // throw new System.NotImplementedException();
         }
+
+        private void BtnEliminarP_Click(object sender, System.EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(txtId.Text.Trim()))
+                {
+                    new AuxiliarP().Destroy(int.Parse(txtId.Text.Trim()));
+                    Toast.MakeText(this, "Pedido eliminado", ToastLength.Short).Show();
+                }
+                else
+                {
+                    Toast.MakeText(this, "Campo vacio. Rellene el campo de ID", ToastLength.Long).Show();
+                }
+            }
+            catch (Exception x)
+            {
+                Toast.MakeText(this, x.ToString(), ToastLength.Short).Show();
+            }
+            //throw new System.NotImplementedException();
+        }
+
+        private void BtnActualizarP_Click(object sender, System.EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(txtNombre.Text.Trim()) && !string.IsNullOrEmpty(txtId.Text.Trim()) && !string.IsNullOrEmpty(txtApellido.Text.Trim()) && !string.IsNullOrEmpty(txtTelefono.Text.Trim()) && !string.IsNullOrEmpty(txtDireccion.Text.Trim()) && !string.IsNullOrEmpty(txtMetodoPago.Text.Trim()))
+                {
+                    // = new Auxiliar().Insert( txtId.Text.Trim(), txtNombre.Text.Trim(), txtApellido.Text.Trim(), txtTelefono.Text.Trim(), txtDireccion.Text.Trim(), txtMetodoPago.Text.Trim());
+                    new AuxiliarP().Insert(new Sign() { ID = int.Parse(txtId.Text.Trim()), Nombre = txtNombre.Text.Trim(), Apellido = txtApellido.Text.Trim(), Telefono = txtTelefono.Text.Trim(), Direccion = txtDireccion.Text.Trim(), MetoPago = txtMetodoPago.Text.Trim() });
+                    Toast.MakeText(this, "Pedido actualizado", ToastLength.Short).Show();
+                }
+                else
+                {
+                    Toast.MakeText(this, "Campos o campo vacio. Rellene todos los campos", ToastLength.Long).Show();
+                }
+            }
+            catch (Exception X)
+            {
+                Toast.MakeText(this, X.ToString(), ToastLength.Short).Show();
+            }
+            //throw new System.NotImplementedException();
+        }
+
+        private void BtnInsertarP_Click(object sender, System.EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(txtNombre.Text.Trim()) && !string.IsNullOrEmpty(txtApellido.Text.Trim()) && !string.IsNullOrEmpty(txtTelefono.Text.Trim()) && !string.IsNullOrEmpty(txtDireccion.Text.Trim()) && !string.IsNullOrEmpty(txtMetodoPago.Text.Trim()))
+                {
+                    // = new Auxiliar().Insert(txtUser.Text.Trim(), txtId.Text.Trim(), txtEmail.Text.Trim(), txtDescription.Text.Trim());
+                    new AuxiliarP().Insert(new Sign() { ID = 0, Nombre = txtNombre.Text.Trim(), Apellido = txtApellido.Text.Trim(), Telefono = txtTelefono.Text.Trim(), Direccion = txtDireccion.Text.Trim(), MetoPago = txtMetodoPago.Text.Trim() });
+                    Toast.MakeText(this, "Pedido guardado", ToastLength.Short).Show();
+
+
+                }
+                else
+                {
+                    Toast.MakeText(this, "Campos o campo vacio. Rellene todos los campos", ToastLength.Long).Show();
+                }
+            }
+            catch (Exception X)
+            {
+                Toast.MakeText(this, X.ToString(), ToastLength.Short).Show();
+            }
+            //throw new System.NotImplementedException();
+        }
+
+       
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

@@ -12,6 +12,7 @@ using System.Text;
 using System.IO;
 using Path = System.IO.Path;
 
+
 namespace AppRestaurante
 {
     #region uso de datos de un usuario
@@ -62,7 +63,7 @@ namespace AppRestaurante
             connectionBaseDatos = new SQLiteConnection(completaRuta);
             return connectionBaseDatos;
 
-         }
+        }
 
         //Selecionar un registro
         public Login selecionarUno(string NuevoUsuario, string NuevaClaveUsuario)
@@ -73,137 +74,19 @@ namespace AppRestaurante
             }
         }
 
-      
+
 
         //Selecionar muchos
         public IEnumerable<Login> selecionarTodo()
         {
             lock (loker)
             {
-                return (from i in connection.Table<Login>()select i).ToList();
+                return (from i in connection.Table<Login>() select i).ToList();
             }
         }
 
         //Guardar o actualizar
         public int guardar(Login registro)
-        {
-            lock (loker)
-            {
-                if (registro.Id == 0)
-                {
-                    return connection.Insert(registro);
-                }
-                else
-                {
-                    return connection.Update(registro); 
-                }
-            }
-        }
-
-        //Eliminar
-        public int eliminar(int ID)
-        {
-            lock (loker)
-            {
-                return connection.Delete<Login>(ID);
-            }
-        }
-    
-    }
-    #endregion
-
-    #region uso de datos de un pedido
-    public class CrearPedido
-    {
-        private VerPedidosCRUD verPedidosCRUD;
-
-        public CrearPedido() { }
-
-        public CrearPedido(VerPedidosCRUD verPedidosCRUD)
-        {
-            this.verPedidosCRUD = verPedidosCRUD;
-        }
-
-        [PrimaryKey]
-        [MaxLength(10)]
-        public int Id { get; set; }
-
-        [MaxLength(15)]
-        public string Nombre { get; set; }
-
-        [MaxLength(15)]
-        public string Apellido { get; set; }
-
-        [MaxLength(15)]
-        public string Telefono { get; set; }
-
-        [MaxLength(15)]
-        public string Direccion { get; set; }
-
-        [MaxLength(15)]
-        public string MetodoPago { get; set; }
-
-        internal void ActualizarPedido(CrearPedido pedido)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal void InsertarPedido(CrearPedido pedido)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal object ObtenerTodasLosPedidos()
-        {
-            throw new NotImplementedException();
-        }
-    }
-    #endregion
-
-    #region Manejo de datos y conexion a BD de Peddido
-    public class AuxiliarP
-    {
-        static object loker = new object();
-        SQLiteConnection connection;
-        public AuxiliarP()//Esto es un construtor
-        {
-            connection = conectarBD();
-            connection.CreateTable<CrearPedido>();
-        }
-
-        public SQLite.SQLiteConnection conectarBD()
-        {
-            SQLiteConnection connectionBaseDatos;
-            string nombreArchivo = "registros.db3";
-            string ruta = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
-            string completaRuta = Path.Combine(ruta, nombreArchivo);
-            connectionBaseDatos = new SQLiteConnection(completaRuta);
-            return connectionBaseDatos;
-
-        }
-
-        //Selecionar un pedido
-        public CrearPedido SelecionarUno(int Id)
-        {
-            lock (loker)
-            {
-                return connection.Table<CrearPedido>().FirstOrDefault(x => x.Id == Id);
-            }
-        }
-
-
-
-        //Selecionar muchos
-        public IEnumerable<CrearPedido>SelecionarTodo()
-        {
-            lock (loker)
-            {
-                return (from i in connection.Table<CrearPedido>() select i).ToList();
-            }
-        } 
-            
-        //Guardar o actualizar
-        public int GuardarPedido(CrearPedido registro)
         {
             lock (loker)
             {
@@ -219,15 +102,109 @@ namespace AppRestaurante
         }
 
         //Eliminar
-        public int Eliminar(int Id)
+        public int eliminar(int ID)
         {
             lock (loker)
             {
-                return connection.Delete<CrearPedido>(Id);
+                return connection.Delete<Login>(ID);
             }
         }
 
     }
     #endregion
 
+    #region uso de datos de un pedido
+    
+    
+        //Creación de la tabla de base de datos
+        public class Sign
+        {
+            public Sign() { }
+
+            //Columna ID con su llave primaria
+            [PrimaryKey, AutoIncrement]
+            [MaxLength(8)]
+            public int ID { set; get; }
+
+            //Columna Nombre
+            [MaxLength(15)]
+            public String Nombre { get; set; }
+
+            //Columna Apellido
+            [MaxLength(15)]
+            public String Apellido { get; set; }
+
+            //Columna Telefono
+            [MaxLength(10)]
+            public String Telefono { get; set; }
+
+            //Columna Direccion
+            [MaxLength(10)]
+            public String Direccion { get; set; }
+
+            //Columna Metodo de pago
+            [MaxLength(10)]
+            public String MetoPago { get; set; }
+        }
+    
+    #endregion
+
+    #region Manejo de datos y conexion a BD de Peddido
+    //Hacemos la conexión a la base de datos
+    public class AuxiliarP
+    {
+        static object locker = new object();
+        SQLiteConnection conection;
+        public AuxiliarP()
+        {
+            conection = conectionDabatase();
+            conection.CreateTable<Sign>();
+
+        }
+
+        public SQLite.SQLiteConnection conectionDabatase()
+        {
+            SQLiteConnection enterDatabase;
+            String nameDatabase = "queryDatabase.db3";
+            String path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            String completPath = Path.Combine(path, nameDatabase);
+            enterDatabase = new SQLiteConnection(completPath);
+            return enterDatabase;
+        }
+
+        //Buscar registro
+        public Sign Selection(int Data)
+        {
+            lock (locker)
+            {
+                return conection.Table<Sign>().FirstOrDefault(i => i.ID == Data);
+            }
+        }
+        //Eliminar registro
+        public int Destroy(int Id)
+        {
+            lock (locker)
+            {
+                return conection.Delete<Sign>(Id);
+            }
+        }
+
+        //Insertar registro y/o actualizar
+        public int Insert(Sign sign)
+        {
+            lock (locker)
+            {
+                if (sign.ID == 0)
+                {
+                    return conection.Insert(sign);
+                }
+                else
+                {
+                    return conection.Update(sign);
+                }
+            }
+        }
+    }
 }
+        #endregion
+

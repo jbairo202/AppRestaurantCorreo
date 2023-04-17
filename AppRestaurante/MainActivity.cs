@@ -4,7 +4,6 @@ using Android.OS;
 using Android.Runtime;
 using Android.Widget;
 using AndroidX.AppCompat.App;
-using AppRestaurante.Data;
 using System;
 
 namespace AppRestaurante

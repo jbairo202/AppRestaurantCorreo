@@ -22,12 +22,6 @@
 		  android:title="Ver menu" />
 
 		<item
-		  android:id="@+id/iccrear"
-		  android:icon="@mipmap/ic_crear"
-		  android:showAsAction="ifRoom"
-		  android:title="crear pedido" />
-
-		<item
 		  android:id="@+id/icayuda"
 		  android:icon="@mipmap/ic_ayuda"
 		  android:showAsAction="ifRoom"

@@ -18,12 +18,9 @@ namespace AppRestaurante
     public class Bienvenido : Activity
     {
         TextView textTextoBienvenido;
-
-        
-
         Toolbar toolbar;
         Button btnSalir;
-        Button btnVerPedidos;
+        Button btnPedidos;
         //private EventHandler BtnSalir_Click;
 
         protected override void OnCreate(Bundle savedInstanceState)
@@ -33,12 +30,12 @@ namespace AppRestaurante
             textTextoBienvenido = FindViewById<TextView>(Resource.Id.txtBienvenido);
             FindViewById<TextView>(Resource.Id.txtBienvenido).Text = textTextoBienvenido.Text + ": " + Intent.GetStringExtra("username") ?? "Error al o";
             btnSalir = FindViewById<Button>(Resource.Id.btnSalir);
-            btnVerPedidos = FindViewById<Button>(Resource.Id.btnVerPedidos);
+            btnPedidos = FindViewById<Button>(Resource.Id.btnPedidos);
 
             toolbar = FindViewById<Toolbar>(Resource.Id.toolbarMenu);
 
             btnSalir.Click += BtnSalir_Click;
-            btnVerPedidos.Click += BtnVerPedidos_Click;
+            btnPedidos.Click += BtnPedidos_Click;
             
 
             SetActionBar(toolbar);
@@ -46,9 +43,9 @@ namespace AppRestaurante
             ActionBar.Title = "Menu";
         }
 
-        private void BtnVerPedidos_Click(object sender, EventArgs e)
+        private void BtnPedidos_Click(object sender, System.EventArgs e)
         {
-            Intent i = new Intent(this, typeof(VerPedidosCRUD));
+            Intent i = new Intent(this, typeof(Pedidos));
             StartActivity(i);
         }
 
@@ -79,10 +76,6 @@ namespace AppRestaurante
                 case Resource.Id.icmenu:
                     Intent x = new Intent(this, typeof(VerMenu));
                     StartActivity(x);
-                    break;
-                case Resource.Id.iccrear:
-                    Intent i = new Intent(this, typeof(Create_Pedido));
-                    StartActivity(i);
                     break;
                 case Resource.Id.icayuda:
                     Intent j = new Intent(this, typeof(Ayuda));

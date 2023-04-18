@@ -114,10 +114,10 @@ namespace AppRestaurante
     #endregion
 
     #region uso de datos de un pedido
-    
-    
-        //Creación de la tabla de base de datos
-        public class Sign
+
+
+    //Creación de la tabla de base de datos
+    public class Sign
         {
             public Sign() { }
 

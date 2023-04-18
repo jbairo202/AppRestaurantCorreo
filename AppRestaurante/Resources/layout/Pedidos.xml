@@ -1,11 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    
+
+    <TextView
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ViewOne" />
+    <TextView
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ViewTwo" />
+    <TextView
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ViewThree" />
+    <TextView
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ViewFour" />
+    <TextView
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ViewFive" />
+    <TextView
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ViewSix" />
+
     <EditText
         android:inputType="textMultiLine"
         android:layout_width="match_parent"
@@ -42,70 +80,50 @@
         android:layout_height="wrap_content"
         android:hint="Metodo de Pago"
         android:id="@+id/txtMetodoPago" />
-    <Button
-        android:text="Guardar Pedido"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnInsertarP" />
-    <Button
-        android:text="Mostrar Pedido"
+        android:orientation="horizontal">
+        <Button
+            android:text="Guardar Pedido"
+            android:layout_width="196.5dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnInsertarP"/>
+        <Button
+            android:text="Mostrar Pedido"
+            android:layout_width="196.5dp"
+            android:layout_height="match_parent"
+            android:id="@+id/btnMostrarP" />
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnMostrarP" />
-    <Button
-        android:text="Actualizar Pedido"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnActualizarP" />
-    <Button
-        android:text="Eliminar Pedido"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnEliminarP" />
+        android:orientation="horizontal">
+        <Button
+            android:text="Actualizar Pedido"
+            android:layout_width="195.5dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnActualizarP" />
+        <Button
+            android:text="Eliminar Pedido"
+            android:layout_width="195.0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnEliminarP"
+            android:layout_marginRight="59.5dp" />
+    </LinearLayout>
     <Button
         android:text="Regresar"
-        android:layout_width="match_parent"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="0.0dp"
         android:id="@+id/btnAtras"
         android:onClick="BtnVolver_Click"/>
-    <TextView
-        android:text=""
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ViewOne" />
 
-    <TextView
-        android:text=""
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ViewTwo" />
-    <TextView
-        android:text=""
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ViewThree" />
-    <TextView
-        android:text=""
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ViewFour" />
-    <TextView
-        android:text=""
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ViewFive" />
-    <TextView
-        android:text=""
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ViewSix" />
+
+
 
 </LinearLayout>
 
